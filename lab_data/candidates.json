@@ -1,0 +1,123 @@
+{
+ "C1": {
+  "code": "def priority(item, bins):\n    s = bins - item\n    return np.where(s == 0, 1000.0, s.astype(float))",
+  "code_hash": "6edb705c25f6",
+  "idea": "Exact-fit bonus, otherwise worst-fit (spread residuals)",
+  "hypothesis_id": "H1",
+  "source_arxiv_ids": [
+   "2102.03311"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C2": {
+  "code": "def priority(item, bins):\n    return -(bins % item).astype(float) - 0.01 * np.arange(len(bins))",
+  "code_hash": "cec91f9725d7",
+  "idea": "Harmonic-style size-class alignment: minimise bins mod item so residual fits whole copies of same-size items",
+  "hypothesis_id": "H2",
+  "source_arxiv_ids": [
+   "1511.00876"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C3": {
+  "code": "def priority(item, bins):\n    s = bins - item\n    return -np.abs(s - 20.0) - 0.001 * np.arange(len(bins))",
+  "code_hash": "0ff737eb485b",
+  "idea": "Target-leftover: aim for residual slack of ~20 (a useful remainder), penalising tiny and large leftovers",
+  "hypothesis_id": "H3",
+  "source_arxiv_ids": [
+   "2505.09321"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C4": {
+  "code": "def priority(item, bins):\n    s = (bins - item).astype(float)\n    idx = np.arange(len(bins))\n    if item >= 50:\n        return -idx.astype(float)\n    return -s - 0.001 * idx",
+  "code_hash": "62274525954c",
+  "idea": "Size-threshold hybrid: large items (>=50) first-fit, small items best-fit (advice-style class split)",
+  "hypothesis_id": "H4",
+  "source_arxiv_ids": [
+   "1212.4016"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C5": {
+  "code": "def priority(item, bins):\n    s = (bins - item).astype(float)\n    return -(s ** 2) / 100.0 - 0.5 * np.arange(len(bins))",
+  "code_hash": "d0694c883c21",
+  "idea": "Quadratic slack penalty plus age bias toward older bins (nonlinear mix)",
+  "hypothesis_id": "H5",
+  "source_arxiv_ids": [
+   "2205.03622"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C6": {
+  "code": "def priority(item, bins):\n    s = bins - item\n    r = s % 25\n    return -np.minimum(r, 25 - r).astype(float) - 0.01 * s",
+  "code_hash": "0166d0cc1a00",
+  "idea": "Quarter-capacity residual alignment: leave slack near a multiple of 25 (Harmonic-like granularity)",
+  "hypothesis_id": "H6",
+  "source_arxiv_ids": [
+   "1511.00876",
+   "2401.02051"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C7": {
+  "code": "def priority(item, bins):\n    s = (bins - item).astype(float)\n    return np.where(bins <= 30, 200.0 - s, s)",
+  "code_hash": "2d20ad6ad892",
+  "idea": "Fill-level threshold: nearly full bins (remaining<=30) best-fit first, otherwise worst-fit",
+  "hypothesis_id": "H7",
+  "source_arxiv_ids": [
+   "2409.16867"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C8": {
+  "code": "def priority(item, bins):\n    return np.arange(len(bins)).astype(float)",
+  "code_hash": "402a60da2e1c",
+  "idea": "Last-fit: prefer newest open bin (Next-Fit-like recency)",
+  "hypothesis_id": "H8",
+  "source_arxiv_ids": [
+   "2205.03622"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C9": {
+  "code": "def priority(item, bins):\n    s = bins - item\n    dead = (s > 0) & (s < 10)\n    return np.where(dead, -1000.0 + s, np.where(s == 0, 1000.0, s * 1.0))",
+  "code_hash": "a3b17ff95b79",
+  "idea": "Dead-zone avoidance: exact fit best, avoid leaving slack 1-9, otherwise worst-fit",
+  "hypothesis_id": "H9",
+  "source_arxiv_ids": [
+   "2102.03311"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C10": {
+  "code": "def priority(item, bins):\n    s = bins - item\n    return -np.abs(bins - np.median(bins)) - 0.001 * s",
+  "code_hash": "a1a3159a577c",
+  "idea": "Median-balancing: choose bin whose remaining capacity is closest to the median of feasible bins",
+  "hypothesis_id": "H10",
+  "source_arxiv_ids": [
+   "2401.02051"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C11": {
+  "code": "def priority(item, bins):\n    s = bins - item\n    n = len(bins)\n    if item < 25:\n        return -s * 1.0\n    if item < 50:\n        return np.where(s == 0, 1000.0, 100.0 - np.arange(n))\n    return 100.0 - np.arange(n) * 1.0",
+  "code_hash": "9a4b52b3c7b1",
+  "idea": "Three-class size policy: small best-fit, medium exact-fit-else-first-fit, large first-fit",
+  "hypothesis_id": "H11",
+  "source_arxiv_ids": [
+   "1511.00876"
+  ],
+  "origin": "AGENT-GENERATED"
+ },
+ "C12": {
+  "code": "def priority(item, bins):\n    s = bins - item\n    n = len(bins)\n    near = s <= item\n    return np.where(near, 1000.0 - np.arange(n), s * 1.0)",
+  "code_hash": "1f87f040a6a9",
+  "idea": "Bounded first-fit: first bin leaving slack <= item size, else worst-fit",
+  "hypothesis_id": "H12",
+  "source_arxiv_ids": [
+   "1212.4016"
+  ],
+  "origin": "AGENT-GENERATED"
+ }
+}

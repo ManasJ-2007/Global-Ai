@@ -1,0 +1,825 @@
+{
+ "all:\"online bin packing\" AND all:\"competitive ratio\"|6|relevance": [
+  {
+   "arxiv_id": "2505.09321v1",
+   "title": "Online Bin Packing with Item Size Estimates",
+   "authors": [
+    "Matthias Gehnen",
+    "Andreas Usdenski"
+   ],
+   "published": "2025-05-14",
+   "abstract": "Imagine yourself moving to another place, and therefore, you need to pack all of your belongings into moving boxes with some capacity. In the classical bin packing model, you would try to minimize the number of boxes, knowing the exact size of each item you want to pack. In the online bin packing problem, you need to start packing the first item into a box, without knowing what other stuff is upcoming. Both settings are somewhat unrealistic, as you are likely not willing to measure the exact size of all your belongings before packing the first item, but you are not completely clueless about what other stuff you have when you start packing. In this article, we introduce the online bin packing with estimates model, where you start packing with a rough idea about the upcoming item sizes in mind. In this model, an algorithm receives a size estimate for every item in the input list together with an accuracy factor $\u03b4$ in advance. Just as for regular online bin packing the items are then presented iteratively. The actual sizes of the items are allowed to deviate from the size estimate by a factor of $\u03b4$. Once the actual size of an item is revealed the algorithm has to make an irrevocable decision on the question where to place it. This is the first time online bin packing is studied under this model. This article has three main results: First, no algorithm can achieve a competitive ratio of less than $\\frac{4}{3}$, even for an arbitrary small factor $\u03b4>0$. Second, we present an algorithm that is $1.5$-competitive for all $\u03b4\\leq \\frac{1}{35}$. Finally, we design a strategy that yields a competitive ratio of $\\frac{4}{3}$ under the assumption that not more than two items can be placed in the same bin, which is best possible in this setting.",
+   "url": "http://arxiv.org/abs/2505.09321v1"
+  },
+  {
+   "arxiv_id": "0906.0409v1",
+   "title": "A New Upper Bound on 2D Online Bin Packing",
+   "authors": [
+    "Xin Han",
+    "Francis Y. L. Chin",
+    "Hing-Fung Ting",
+    "Guochuan Zhang"
+   ],
+   "published": "2009-06-02",
+   "abstract": "The 2D Online Bin Packing is a fundamental problem in Computer Science and the determination of its asymptotic competitive ratio has attracted great research attention. In a long series of papers, the lower bound of this ratio has been improved from 1.808, 1.856 to 1.907 and its upper bound reduced from 3.25, 3.0625, 2.8596, 2.7834 to 2.66013. In this paper, we rewrite the upper bound record to 2.5545. Our idea for the improvement is as follows. In SODA 2002 \\cite{SS03}, Seiden and van Stee proposed an elegant algorithm called $H \\otimes B$, comprised of the {\\em Harmonic algorithm} $H$ and the {\\em Improved Harmonic algorithm} $B$, for the two-dimensional online bin packing problem and proved that the algorithm has an asymptotic competitive ratio of at most 2.66013. Since the best known online algorithm for one-dimensional bin packing is the {\\em Super Harmonic algorithm} \\cite{S02}, a natural question to ask is: could a better upper bound be achieved by using the Super Harmonic algorithm instead of the Improved Harmonic algorithm? However, as mentioned in \\cite{SS03}, the previous analysis framework does not work. In this paper, we give a positive answer for the above question. A new upper bound of 2.5545 is obtained for 2-dimensional online bin packing. The main idea is to develop new weighting functions for the Super Harmonic algorithm and propose new techniques to bound the total weight in a rectangular bin.",
+   "url": "http://arxiv.org/abs/0906.0409v1"
+  },
+  {
+   "arxiv_id": "1212.4016v2",
+   "title": "Online Bin Packing with Advice",
+   "authors": [
+    "Joan Boyar",
+    "Shahin Kamali",
+    "Kim S. Larsen",
+    "Alejandro L\u00f3pez-Ortiz"
+   ],
+   "published": "2012-12-17",
+   "abstract": "We consider the online bin packing problem under the advice complexity model where the 'online constraint' is relaxed and an algorithm receives partial information about the future requests. We provide tight upper and lower bounds for the amount of advice an algorithm needs to achieve an optimal packing. We also introduce an algorithm that, when provided with log n + o(log n) bits of advice, achieves a competitive ratio of 3/2 for the general problem. This algorithm is simple and is expected to find real-world applications. We introduce another algorithm that receives 2n + o(n) bits of advice and achieves a competitive ratio of 4/3 + \u03b5. Finally, we provide a lower bound argument that implies that advice of linear size is required for an algorithm to achieve a competitive ratio better than 9/8.",
+   "url": "http://arxiv.org/abs/1212.4016v2"
+  },
+  {
+   "arxiv_id": "2205.03622v2",
+   "title": "Near-optimal Algorithms for Stochastic Online Bin Packing",
+   "authors": [
+    "Nikhil Ayyadevara",
+    "Rajni Dabas",
+    "Arindam Khan",
+    "K. V. N. Sreenivas"
+   ],
+   "published": "2022-05-07",
+   "abstract": "We study the online bin packing problem under two stochastic settings. In the bin packing problem, we are given n items with sizes in (0,1] and the goal is to pack them into the minimum number of unit-sized bins. First, we study bin packing under the i.i.d. model, where item sizes are sampled independently and identically from a distribution in (0,1]. Both the distribution and the total number of items are unknown. The items arrive one by one and their sizes are revealed upon their arrival and they must be packed immediately and irrevocably in bins of size 1. We provide a simple meta-algorithm that takes an offline $\u03b1$-asymptotic approximation algorithm and provides a polynomial-time $(\u03b1+ \\varepsilon)$-competitive algorithm for online bin packing under the i.i.d. model, where $\\varepsilon$>0 is a small constant. Using the AFPTAS for offline bin packing, we thus provide a linear time $(1+\\varepsilon)$-competitive algorithm for online bin packing under i.i.d. model, thus settling the problem. We then study the random-order model, where an adversary specifies the items, but the order of arrival of items is drawn uniformly at random from the set of all permutations of the items. Kenyon's seminal result [SODA'96] showed that the Best-Fit algorithm has a competitive ratio of at most 3/2 in the random-order model, and conjectured the ratio to be around 1.15. However, it has been a long-standing open problem to break the barrier of 3/2 even for special cases. Recently, Albers et al. [Algorithmica'21] showed an improvement to 5/4 competitive ratio in the special case when all the item sizes are greater than 1/3. For this special case, we settle the analysis by showing that Best-Fit has a competitive ratio of 1. We make further progress by breaking the barrier of 3/2 for the 3-Partition problem, a notoriously hard special case of bin packing, where all item sizes lie in (1/4,1/2].",
+   "url": "http://arxiv.org/abs/2205.03622v2"
+  },
+  {
+   "arxiv_id": "2102.03311v3",
+   "title": "Online Bin Packing with Predictions",
+   "authors": [
+    "Spyros Angelopoulos",
+    "Shahin Kamali",
+    "Kimia Shadkami"
+   ],
+   "published": "2021-02-05",
+   "abstract": "Bin packing is a classic optimization problem with a wide range of applications, from load balancing to supply chain management. In this work, we study the online variant of the problem, in which a sequence of items of various sizes must be placed into a minimum number of bins of uniform capacity. The online algorithm is enhanced with a (potentially erroneous) prediction concerning the frequency of item sizes in the sequence. We design and analyze online algorithms with efficient tradeoffs between the consistency (i.e., the competitive ratio assuming no prediction error) and the robustness (i.e., the competitive ratio under adversarial error), and whose performance degrades near-optimally as a function of the prediction error. This is the first theoretical and experimental study of online bin packing under competitive analysis, in the realistic setting of learnable predictions. Previous work addressed only extreme cases with respect to the prediction error, and relied on overly powerful and error-free oracles.",
+   "url": "http://arxiv.org/abs/2102.03311v3"
+  },
+  {
+   "arxiv_id": "1511.00876v7",
+   "title": "Beating the Harmonic lower bound for online bin packing",
+   "authors": [
+    "Sandy Heydrich",
+    "Rob van Stee"
+   ],
+   "published": "2015-11-03",
+   "abstract": "In the online bin packing problem, items of sizes in (0,1] arrive online to be packed into bins of size 1. The goal is to minimize the number of used bins. In this paper, we present an online bin packing algorithm with asymptotic competitive ratio of 1.5813. This is the first improvement in fifteen years and reduces the gap to the lower bound by 15%. Within the well-known SuperHarmonic framework, no competitive ratio below 1.58333 can be achieved. We make two crucial changes to that framework. First, some of our algorithm's decisions depend on exact sizes of items, instead of only their types. In particular, for each item with size in (1/3,1/2], we use its exact size to determine if it can be packed together with an item of size greater than 1/2. Second, we add constraints to the linear programs considered by Seiden, in order to better lower bound the optimal solution. These extra constraints are based on marks that we give to items based on how they are packed by our algorithm. We show that for each input, a single weighting function can be constructed to upper bound the competitive ratio on it. We use this idea to simplify the analysis of SuperHarmonic, and show that the algorithm Harmonic++ is in fact 1.58880-competitive (Seiden proved 1.58889), and that 1.5884 can be achieved within the SuperHarmonic framework. Finally, we give a lower bound of 1.5762 for our new framework.",
+   "url": "http://arxiv.org/abs/1511.00876v7"
+  }
+ ],
+ "all:FunSearch OR all:AlphaEvolve|6|relevance": [
+  {
+   "arxiv_id": "2506.13131v1",
+   "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+   "authors": [
+    "Alexander Novikov",
+    "Ng\u00e2n V\u0169",
+    "Marvin Eisenberger",
+    "Emilien Dupont",
+    "Po-Sen Huang",
+    "Adam Zsolt Wagner",
+    "Sergey Shirobokov",
+    "Borislav Kozlovskii",
+    "Francisco J. R. Ruiz",
+    "Abbas Mehrabian",
+    "M. Pawan Kumar",
+    "Abigail See",
+    "Swarat Chaudhuri",
+    "George Holland",
+    "Alex Davies",
+    "Sebastian Nowozin",
+    "Pushmeet Kohli",
+    "Matej Balog"
+   ],
+   "published": "2025-06-16",
+   "abstract": "In this white paper, we present AlphaEvolve, an evolutionary coding agent that substantially enhances capabilities of state-of-the-art LLMs on highly challenging tasks such as tackling open scientific problems or optimizing critical pieces of computational infrastructure. AlphaEvolve orchestrates an autonomous pipeline of LLMs, whose task is to improve an algorithm by making direct changes to the code. Using an evolutionary approach, continuously receiving feedback from one or more evaluators, AlphaEvolve iteratively improves the algorithm, potentially leading to new scientific and practical discoveries. We demonstrate the broad applicability of this approach by applying it to a number of important computational problems. When applied to optimizing critical components of large-scale computational stacks at Google, AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated discovery methods (Romera-Paredes et al., 2023). Notably, AlphaEvolve developed a search algorithm that found a procedure to multiply two $4 \\times 4$ complex-valued matrices using $48$ scalar multiplications; offering the first improvement, after 56 years, over Strassen's algorithm in this setting. We believe AlphaEvolve and coding agents like it can have a significant impact in improving solutions of problems across many areas of science and computation.",
+   "url": "http://arxiv.org/abs/2506.13131v1"
+  },
+  {
+   "arxiv_id": "2505.16105v1",
+   "title": "Sums and differences of sets (improvement over AlphaEvolve)",
+   "authors": [
+    "Robert Gerbicz"
+   ],
+   "published": "2025-05-22",
+   "abstract": "On May 14, 2025, DeepMind announced that AlphaEvolve, a large language model applied to a set of mathematical problems, had matched or exceeded the best known bounds on several problems. In the case of the sum and difference of sets problem, AlphaEvolve, using a set of $54265$ integers, improved the known lower bound of $\u03b8=1.14465$ to $\u03b8=1.1584$. In this paper, we present an improved bound $\u03b8=1.173050$ using an explicit construction of a U set that contains more than $10^{43546}$ elements. For fast integer and floating-point arithmetic, we used the (free) GMP library.",
+   "url": "http://arxiv.org/abs/2505.16105v1"
+  },
+  {
+   "arxiv_id": "2605.14718v1",
+   "title": "Adapting AlphaEvolve to Optimize Fully Homomorphic Encryption on TPUs",
+   "authors": [
+    "Shruthi Gorantala",
+    "Jianming Tong",
+    "Asra Ali",
+    "Baiyu Li",
+    "Jonathan Katz",
+    "Jeremy Kun",
+    "Thomas Steinke",
+    "Abhradeep Thakurta",
+    "Julian Walker",
+    "Amir Yazdanbakhsh"
+   ],
+   "published": "2026-05-14",
+   "abstract": "The deployment of Fully Homomorphic Encryption (FHE) at scale is hindered due to its heavy computational overhead. While specialized hardware accelerators like Google Tensor Processing Units (TPUs) can help, mapping complex cryptographic kernels onto such architectures remains a challenge. Efficient execution requires co-optimization between the systolic array-based Matrix Multiplication Unit (MXU) and Vector Processing Units (VPUs), as well as the orchestration of data movement across the vector register files. Existing compiler stacks often abstract low-level hardware utilization, requiring developers to adopt a manual trial-and-error process that often results in fragmented execution and underutilized resources. To accelerate this development process, we use AlphaEvolve to automate the exploration of hardware-aware cryptographic-kernel optimizations. We frame optimization as an evolutionary search problem, utilizing the closed-loop system provided by AlphaEvolve, that leverages LLM-driven code generation. We use real-world feedback from hardware execution and rigorous correctness testing to guide the evolution process. We evaluate AlphaEvolve optimization on primitives for both the TFHE (Jaxite) and CKKS (CROSS) FHE schemes on Google Cloud TPUv5e, a contemporary TPU architecture. Within 24 hours of automated exploration, AlphaEvolve discovered implementation-level optimizations that improve TFHE bootstrap latency by 2.5x and CKKS rotation and multiplication latency by 1.31x and 1.18x, respectively, relative to human-engineered state of the art. These results demonstrate that AlphaEvolve can be used to enable researchers to navigate the optimization trade-offs between cryptography, compilers, and hardware accelerators.",
+   "url": "http://arxiv.org/abs/2605.14718v1"
+  },
+  {
+   "arxiv_id": "2506.01896v1",
+   "title": "Sums and differences of sets: a further improvement over AlphaEvolve",
+   "authors": [
+    "Fan Zheng"
+   ],
+   "published": "2025-06-02",
+   "abstract": "We present a new advancement in the sum and difference of sets problem, which improves upon recent results by both DeepMind's AlphaEvolve ($\u03b8= 1.1584$) and subsequent explicit constructions ($\u03b8= 1.173050$). In this work, we construct a sequence of $U$ sets which in the limit establishes a new lower bound of $\u03b8= 1.173077$.",
+   "url": "http://arxiv.org/abs/2506.01896v1"
+  },
+  {
+   "arxiv_id": "2406.04824v2",
+   "title": "FunBO: Discovering Acquisition Functions for Bayesian Optimization with FunSearch",
+   "authors": [
+    "Virginia Aglietti",
+    "Ira Ktena",
+    "Jessica Schrouff",
+    "Eleni Sgouritsa",
+    "Francisco J. R. Ruiz",
+    "Alan Malek",
+    "Alexis Bellot",
+    "Silvia Chiappa"
+   ],
+   "published": "2024-06-07",
+   "abstract": "The sample efficiency of Bayesian optimization algorithms depends on carefully crafted acquisition functions (AFs) guiding the sequential collection of function evaluations. The best-performing AF can vary significantly across optimization problems, often requiring ad-hoc and problem-specific choices. This work tackles the challenge of designing novel AFs that perform well across a variety of experimental settings. Based on FunSearch, a recent work using Large Language Models (LLMs) for discovery in mathematical sciences, we propose FunBO, an LLM-based method that can be used to learn new AFs written in computer code by leveraging access to a limited number of evaluations for a set of objective functions. We provide the analytic expression of all discovered AFs and evaluate them on various global optimization benchmarks and hyperparameter optimization tasks. We show how FunBO identifies AFs that generalize well in and out of the training distribution of functions, thus outperforming established general-purpose AFs and achieving competitive performance against AFs that are customized to specific function types and are learned via transfer-learning algorithms.",
+   "url": "http://arxiv.org/abs/2406.04824v2"
+  },
+  {
+   "arxiv_id": "2103.16196v2",
+   "title": "AlphaEvolve: A Learning Framework to Discover Novel Alphas in Quantitative Investment",
+   "authors": [
+    "Can Cui",
+    "Wei Wang",
+    "Meihui Zhang",
+    "Gang Chen",
+    "Zhaojing Luo",
+    "Beng Chin Ooi"
+   ],
+   "published": "2021-03-30",
+   "abstract": "Alphas are stock prediction models capturing trading signals in a stock market. A set of effective alphas can generate weakly correlated high returns to diversify the risk. Existing alphas can be categorized into two classes: Formulaic alphas are simple algebraic expressions of scalar features, and thus can generalize well and be mined into a weakly correlated set. Machine learning alphas are data-driven models over vector and matrix features. They are more predictive than formulaic alphas, but are too complex to mine into a weakly correlated set. In this paper, we introduce a new class of alphas to model scalar, vector, and matrix features which possess the strengths of these two existing classes. The new alphas predict returns with high accuracy and can be mined into a weakly correlated set. In addition, we propose a novel alpha mining framework based on AutoML, called AlphaEvolve, to generate the new alphas. To this end, we first propose operators for generating the new alphas and selectively injecting relational domain knowledge to model the relations between stocks. We then accelerate the alpha mining by proposing a pruning technique for redundant alphas. Experiments show that AlphaEvolve can evolve initial alphas into the new alphas with high returns and weak correlations.",
+   "url": "http://arxiv.org/abs/2103.16196v2"
+  }
+ ],
+ "all:\"Evolution of Heuristics\" AND all:\"large language model\"|5|relevance": [
+  {
+   "arxiv_id": "2401.02051v3",
+   "title": "Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model",
+   "authors": [
+    "Fei Liu",
+    "Xialiang Tong",
+    "Mingxuan Yuan",
+    "Xi Lin",
+    "Fu Luo",
+    "Zhenkun Wang",
+    "Zhichao Lu",
+    "Qingfu Zhang"
+   ],
+   "published": "2024-01-04",
+   "abstract": "Heuristics are widely used for dealing with complex search and optimization problems. However, manual design of heuristics can be often very labour extensive and requires rich working experience and knowledge. This paper proposes Evolution of Heuristic (EoH), a novel evolutionary paradigm that leverages both Large Language Models (LLMs) and Evolutionary Computation (EC) methods for Automatic Heuristic Design (AHD). EoH represents the ideas of heuristics in natural language, termed thoughts. They are then translated into executable codes by LLMs. The evolution of both thoughts and codes in an evolutionary search framework makes it very effective and efficient for generating high-performance heuristics. Experiments on three widely studied combinatorial optimization benchmark problems demonstrate that EoH outperforms commonly used handcrafted heuristics and other recent AHD methods including FunSearch. Particularly, the heuristic produced by EoH with a low computational budget (in terms of the number of queries to LLMs) significantly outperforms widely-used human hand-crafted baseline algorithms for the online bin packing problem.",
+   "url": "http://arxiv.org/abs/2401.02051v3"
+  },
+  {
+   "arxiv_id": "2409.16867v2",
+   "title": "Multi-objective Evolution of Heuristic Using Large Language Model",
+   "authors": [
+    "Shunyu Yao",
+    "Fei Liu",
+    "Xi Lin",
+    "Zhichao Lu",
+    "Zhenkun Wang",
+    "Qingfu Zhang"
+   ],
+   "published": "2024-09-25",
+   "abstract": "Heuristics are commonly used to tackle various search and optimization problems. Design heuristics usually require tedious manual crafting with domain knowledge. Recent works have incorporated Large Language Models (LLMs) into automatic heuristic search, leveraging their powerful language and coding capacity. However, existing research focuses on the optimal performance on the target problem as the sole objective, neglecting other criteria such as efficiency and scalability, which are vital in practice. To tackle this challenge, we propose to model the heuristic search as a multi-objective optimization problem and consider introducing additional practical criteria beyond optimal performance. Due to the complexity of the search space, conventional multi-objective optimization methods struggle to effectively handle LLM-based multi-objective heuristic search. We propose the first LLM-based multi-objective heuristic search framework, Multi-objective Evolution of Heuristic (MEoH), which integrates LLMs in a zero-shot manner to generate a non-dominated set of heuristics to meet multiple design criteria. We design a new dominance-dissimilarity mechanism for effective population management and selection, which incorporates both code dissimilarity in the search space and dominance in the objective space. MEoH is demonstrated in two well-known combinatorial optimization problems: the online Bin Packing Problem (BPP) and the Traveling Salesman Problem (TSP). The results indicate that a variety of elite heuristics are automatically generated in a single run, offering more trade-off options than the existing methods. It successfully achieves competitive or superior performance while improving efficiency up to 10 times. Moreover, we also observe that the multi-objective search introduces novel insights into heuristic design and leads to the discovery of diverse heuristics.",
+   "url": "http://arxiv.org/abs/2409.16867v2"
+  },
+  {
+   "arxiv_id": "2601.19622v1",
+   "title": "Algorithmic Prompt-Augmentation for Efficient LLM-Based Heuristic Design for A* Search",
+   "authors": [
+    "Thomas B\u00f6mer",
+    "Nico Koltermann",
+    "Max Disselnmeyer",
+    "Bastian Amberg",
+    "Anne Meyer"
+   ],
+   "published": "2026-01-27",
+   "abstract": "Heuristic functions are essential to the performance of tree search algorithms such as A*, where their accuracy and efficiency directly impact search outcomes. Traditionally, such heuristics are handcrafted, requiring significant expertise. Recent advances in large language models (LLMs) and evolutionary frameworks have opened the door to automating heuristic design. In this paper, we extend the Evolution of Heuristics (EoH) framework to investigate the automated generation of guiding heuristics for A* search. We introduce a novel domain-agnostic prompt augmentation strategy that includes the A* code into the prompt to leverage in-context learning, named Algorithmic - Contextual EoH (A-CEoH). To evaluate the effectiveness of A-CeoH, we study two problem domains: the Unit-Load Pre-Marshalling Problem (UPMP), a niche problem from warehouse logistics, and the classical sliding puzzle problem (SPP). Our computational experiments show that A-CEoH can significantly improve the quality of the generated heuristics and even outperform expert-designed heuristics.",
+   "url": "http://arxiv.org/abs/2601.19622v1"
+  },
+  {
+   "arxiv_id": "2605.06341v1",
+   "title": "CoupleEvo: Evolving Heuristics for Coupled Optimization Problems Using Large Language Models",
+   "authors": [
+    "Thomas B\u00f6mer",
+    "Bastian Amberg",
+    "Max Disselnmeyer",
+    "Anne Meyer"
+   ],
+   "published": "2026-05-07",
+   "abstract": "Many real-world optimization problems consist of multiple tightly coupled subproblems whose solutions must be coordinated to achieve high overall performance. However, existing large language model driven automated heuristic design approaches are limited to single-problem settings. In this paper, we propose CoupleEvo. CoupleEvo proposes three evolutionary coordination strategies to evolve heuristics for coupled optimization problems: the sequential strategy evolves heuristics for one subproblem after the other; the iterative strategy alternates the evolution of heuristics for different subproblems over successive generations; and the integrated strategy evolves heuristics for all problems simultaneously. The approach is evaluated on two representative coupled optimization problems. Experimental results show that decomposition-based strategies (sequential and iterative) provide more stable convergence and higher solution quality, while the integrated evolution strategy suffers from increased search complexity and variability. These findings highlight the importance of coordinating evolutionary search across interdependent subproblems and demonstrate the potential of LLM-driven heuristic design for complex coupled optimization problems. The code is available: https://github.com/tb-git-kit-research/CoupleEvo.",
+   "url": "http://arxiv.org/abs/2605.06341v1"
+  },
+  {
+   "arxiv_id": "2503.03350v1",
+   "title": "Leveraging Large Language Models to Develop Heuristics for Emerging Optimization Problems",
+   "authors": [
+    "Thomas B\u00f6mer",
+    "Nico Koltermann",
+    "Max Disselnmeyer",
+    "Laura D\u00f6rr",
+    "Anne Meyer"
+   ],
+   "published": "2025-03-05",
+   "abstract": "Combinatorial optimization problems often rely on heuristic algorithms to generate efficient solutions. However, the manual design of heuristics is resource-intensive and constrained by the designer's expertise. Recent advances in artificial intelligence, particularly large language models (LLMs), have demonstrated the potential to automate heuristic generation through evolutionary frameworks. Recent works focus only on well-known combinatorial optimization problems like the traveling salesman problem and online bin packing problem when designing constructive heuristics. This study investigates whether LLMs can effectively generate heuristics for niche, not yet broadly researched optimization problems, using the unit-load pre-marshalling problem as an example case. We propose the Contextual Evolution of Heuristics (CEoH) framework, an extension of the Evolution of Heuristics (EoH) framework, which incorporates problem-specific descriptions to enhance in-context learning during heuristic generation. Through computational experiments, we evaluate CEoH and EoH and compare the results. Results indicate that CEoH enables smaller LLMs to generate high-quality heuristics more consistently and even outperform larger models. Larger models demonstrate robust performance with or without contextualized prompts. The generated heuristics exhibit scalability to diverse instance configurations.",
+   "url": "http://arxiv.org/abs/2503.03350v1"
+  }
+ ],
+ "all:ReEvo AND all:\"reflective evolution\" AND all:heuristics|5|relevance": [
+  {
+   "arxiv_id": "2402.01145v3",
+   "title": "ReEvo: Large Language Models as Hyper-Heuristics with Reflective Evolution",
+   "authors": [
+    "Haoran Ye",
+    "Jiarui Wang",
+    "Zhiguang Cao",
+    "Federico Berto",
+    "Chuanbo Hua",
+    "Haeyeon Kim",
+    "Jinkyoo Park",
+    "Guojie Song"
+   ],
+   "published": "2024-02-02",
+   "abstract": "The omnipresence of NP-hard combinatorial optimization problems (COPs) compels domain experts to engage in trial-and-error heuristic design. The long-standing endeavor of design automation has gained new momentum with the rise of large language models (LLMs). This paper introduces Language Hyper-Heuristics (LHHs), an emerging variant of Hyper-Heuristics that leverages LLMs for heuristic generation, featuring minimal manual intervention and open-ended heuristic spaces. To empower LHHs, we present Reflective Evolution (ReEvo), a novel integration of evolutionary search for efficiently exploring the heuristic space, and LLM reflections to provide verbal gradients within the space. Across five heterogeneous algorithmic types, six different COPs, and both white-box and black-box views of COPs, ReEvo yields state-of-the-art and competitive meta-heuristics, evolutionary algorithms, heuristics, and neural solvers, while being more sample-efficient than prior LHHs.",
+   "url": "http://arxiv.org/abs/2402.01145v3"
+  }
+ ],
+ "all:\"bin packing\" AND (all:\"reinforcement learning\" OR all:\"learned policy\") AND all:online|6|relevance": [
+  {
+   "arxiv_id": "2107.04333v2",
+   "title": "Attend2Pack: Bin Packing through Deep Reinforcement Learning with Attention",
+   "authors": [
+    "Jingwei Zhang",
+    "Bin Zi",
+    "Xiaoyu Ge"
+   ],
+   "published": "2021-07-09",
+   "abstract": "This paper seeks to tackle the bin packing problem (BPP) through a learning perspective. Building on self-attention-based encoding and deep reinforcement learning algorithms, we propose a new end-to-end learning model for this task of interest. By decomposing the combinatorial action space, as well as utilizing a new training technique denoted as prioritized oversampling, which is a general scheme to speed up on-policy learning, we achieve state-of-the-art performance in a range of experimental settings. Moreover, although the proposed approach attend2pack targets offline-BPP, we strip our method down to the strict online-BPP setting where it is also able to achieve state-of-the-art performance. With a set of ablation studies as well as comparisons against a range of previous works, we hope to offer as a valid baseline approach to this field of study.",
+   "url": "http://arxiv.org/abs/2107.04333v2"
+  },
+  {
+   "arxiv_id": "2006.14978v5",
+   "title": "Online 3D Bin Packing with Constrained Deep Reinforcement Learning",
+   "authors": [
+    "Hang Zhao",
+    "Qijin She",
+    "Chenyang Zhu",
+    "Yin Yang",
+    "Kai Xu"
+   ],
+   "published": "2020-06-26",
+   "abstract": "We solve a challenging yet practically useful variant of 3D Bin Packing Problem (3D-BPP). In our problem, the agent has limited information about the items to be packed into the bin, and an item must be packed immediately after its arrival without buffering or readjusting. The item's placement also subjects to the constraints of collision avoidance and physical stability. We formulate this online 3D-BPP as a constrained Markov decision process. To solve the problem, we propose an effective and easy-to-implement constrained deep reinforcement learning (DRL) method under the actor-critic framework. In particular, we introduce a feasibility predictor to predict the feasibility mask for the placement actions and use it to modulate the action probabilities output by the actor during training. Such supervisions and transformations to DRL facilitate the agent to learn feasible policies efficiently. Our method can also be generalized e.g., with the ability to handle lookahead or items with different orientations. We have conducted extensive evaluation showing that the learned policy significantly outperforms the state-of-the-art methods. A user study suggests that our method attains a human-level performance.",
+   "url": "http://arxiv.org/abs/2006.14978v5"
+  },
+  {
+   "arxiv_id": "2007.00463v1",
+   "title": "A Generalized Reinforcement Learning Algorithm for Online 3D Bin-Packing",
+   "authors": [
+    "Richa Verma",
+    "Aniruddha Singhal",
+    "Harshad Khadilkar",
+    "Ansuma Basumatary",
+    "Siddharth Nayak",
+    "Harsh Vardhan Singh",
+    "Swagat Kumar",
+    "Rajesh Sinha"
+   ],
+   "published": "2020-07-01",
+   "abstract": "We propose a Deep Reinforcement Learning (Deep RL) algorithm for solving the online 3D bin packing problem for an arbitrary number of bins and any bin size. The focus is on producing decisions that can be physically implemented by a robotic loading arm, a laboratory prototype used for testing the concept. The problem considered in this paper is novel in two ways. First, unlike the traditional 3D bin packing problem, we assume that the entire set of objects to be packed is not known a priori. Instead, a fixed number of upcoming objects is visible to the loading system, and they must be loaded in the order of arrival. Second, the goal is not to move objects from one point to another via a feasible path, but to find a location and orientation for each object that maximises the overall packing efficiency of the bin(s). Finally, the learnt model is designed to work with problem instances of arbitrary size without retraining. Simulation results show that the RL-based method outperforms state-of-the-art online bin packing heuristics in terms of empirical competitive ratio and volume efficiency.",
+   "url": "http://arxiv.org/abs/2007.00463v1"
+  },
+  {
+   "arxiv_id": "2604.10953v1",
+   "title": "Diffusion Reinforcement Learning Based Online 3D Bin Packing Spatial Strategy Optimization",
+   "authors": [
+    "Jie Han",
+    "Tong Li",
+    "Qingyang Xu",
+    "Yong Song",
+    "Bao Pang",
+    "Xianfeng Yuan"
+   ],
+   "published": "2026-04-13",
+   "abstract": "The online 3D bin packing problem is important in logistics, warehousing and intelligent manufacturing, with solutions shifting to deep reinforcement learning (DRL) which faces challenges like low sample efficiency. This paper proposes a diffusion reinforcement learning-based algorithm, using a Markov decision chain for packing modeling, height map-based state representation and a diffusion model-based actor network. Experiments show it significantly improves the average number of packed items compared to state-of-the-art DRL methods, with excellent application potential in complex online scenarios.",
+   "url": "http://arxiv.org/abs/2604.10953v1"
+  },
+  {
+   "arxiv_id": "2310.04323v1",
+   "title": "Adjustable Robust Reinforcement Learning for Online 3D Bin Packing",
+   "authors": [
+    "Yuxin Pan",
+    "Yize Chen",
+    "Fangzhen Lin"
+   ],
+   "published": "2023-10-06",
+   "abstract": "Designing effective policies for the online 3D bin packing problem (3D-BPP) has been a long-standing challenge, primarily due to the unpredictable nature of incoming box sequences and stringent physical constraints. While current deep reinforcement learning (DRL) methods for online 3D-BPP have shown promising results in optimizing average performance over an underlying box sequence distribution, they often fail in real-world settings where some worst-case scenarios can materialize. Standard robust DRL algorithms tend to overly prioritize optimizing the worst-case performance at the expense of performance under normal problem instance distribution. To address these issues, we first introduce a permutation-based attacker to investigate the practical robustness of both DRL-based and heuristic methods proposed for solving online 3D-BPP. Then, we propose an adjustable robust reinforcement learning (AR2L) framework that allows efficient adjustment of robustness weights to achieve the desired balance of the policy's performance in average and worst-case environments. Specifically, we formulate the objective function as a weighted sum of expected and worst-case returns, and derive the lower performance bound by relating to the return under a mixture dynamics. To realize this lower bound, we adopt an iterative procedure that searches for the associated mixture dynamics and improves the corresponding policy. We integrate this procedure into two popular robust adversarial algorithms to develop the exact and approximate AR2L algorithms. Experiments demonstrate that AR2L is versatile in the sense that it improves policy robustness while maintaining an acceptable level of performance for the nominal case.",
+   "url": "http://arxiv.org/abs/2310.04323v1"
+  },
+  {
+   "arxiv_id": "2409.05344v2",
+   "title": "GOPT: Generalizable Online 3D Bin Packing via Transformer-based Deep Reinforcement Learning",
+   "authors": [
+    "Heng Xiong",
+    "Changrong Guo",
+    "Jian Peng",
+    "Kai Ding",
+    "Wenjie Chen",
+    "Xuchong Qiu",
+    "Long Bai",
+    "Jianfeng Xu"
+   ],
+   "published": "2024-09-09",
+   "abstract": "Robotic object packing has broad practical applications in the logistics and automation industry, often formulated by researchers as the online 3D Bin Packing Problem (3D-BPP). However, existing DRL-based methods primarily focus on enhancing performance in limited packing environments while neglecting the ability to generalize across multiple environments characterized by different bin dimensions. To this end, we propose GOPT, a generalizable online 3D Bin Packing approach via Transformer-based deep reinforcement learning (DRL). First, we design a Placement Generator module to yield finite subspaces as placement candidates and the representation of the bin. Second, we propose a Packing Transformer, which fuses the features of the items and bin, to identify the spatial correlation between the item to be packed and available sub-spaces within the bin. Coupling these two components enables GOPT's ability to perform inference on bins of varying dimensions. We conduct extensive experiments and demonstrate that GOPT not only achieves superior performance against the baselines, but also exhibits excellent generalization capabilities. Furthermore, the deployment with a robot showcases the practical applicability of our method in the real world. The source code will be publicly available at https://github.com/Xiong5Heng/GOPT.",
+   "url": "http://arxiv.org/abs/2409.05344v2"
+  }
+ ],
+ "all:\"multi-fidelity\" AND all:LLM AND all:heuristic AND all:evolution|6|relevance": [],
+ "all:\"automatic heuristic design\" AND all:LLM AND (all:\"evaluation cost\" OR all:\"surrogate\" OR all:\"early stopping\" OR all:\"low-fidelity\")|6|relevance": [],
+ "all:\"Mathematical discoveries from program search with large language models\"|3|relevance": [],
+ "all:LLM AND all:heuristic AND all:\"evaluation\" AND all:\"fidelity\"|6|relevance": [
+  {
+   "arxiv_id": "2605.12421v1",
+   "title": "Formalize, Don't Optimize: The Heuristic Trap in LLM-Generated Combinatorial Solvers",
+   "authors": [
+    "Haoyu Wang",
+    "Yuliang Song",
+    "Tao Li",
+    "Zhiwei Deng",
+    "Yaqing Wang",
+    "Deepak Ramachandran",
+    "Eldan Cohen",
+    "Dan Roth"
+   ],
+   "published": "2026-05-12",
+   "abstract": "Large Language Models (LLMs) struggle to solve complex combinatorial problems through direct reasoning, so recent neuro-symbolic systems increasingly use them to synthesize executable solvers. A central design question is how the LLM should represent the solver, and whether it should also attempt to optimize search. We introduce CP-SynC-XL, a benchmark of 100 combinatorial problems (4,577 instances), and evaluate three solver-construction paradigms: native algorithmic search (Python), constraint modeling through a Python solver API (Python + OR-Tools), and declarative constraint modeling (MiniZinc + OR-Tools). We find a consistent representational divergence: Python + OR-Tools attains the highest correctness across LLMs, while MiniZinc + OR-Tools has lower absolute coverage despite using the same OR-Tools back-end. Native Python is the most likely to return a schema-valid solution that fails verification, whereas solver-backed paths preserve higher conditional fidelity. On the heuristic axis, prompting for search optimization yields only small median speed-ups (1.03-1.12x) and a strongly bimodal effect: many instances slow down, and correctness drops sharply on a long tail of problems. A paired code-level audit traces these regressions to a recurring heuristic trap. Under an efficiency-oriented prompt, the LLM may replace complete search with local approximations (Python), inject unverified bounds (Python + OR-Tools), or add redundant declarative machinery that overwhelms or over-constrains the model (MiniZinc + OR-Tools). These findings support a conservative design principle for LLM-generated combinatorial solvers: use the LLM primarily to formalize variables, constraints, and objectives for verified solvers, and separately check any LLM-authored search optimization before use.",
+   "url": "http://arxiv.org/abs/2605.12421v1"
+  },
+  {
+   "arxiv_id": "2606.01640v1",
+   "title": "MobEvolve: An Agentic Self-Evolving Heuristic System for Interpretable Human Mobility Generation",
+   "authors": [
+    "Junlin He",
+    "Yihong Tang",
+    "Tong Nie",
+    "Ao Qu",
+    "Yuebing Liang",
+    "Hamzeh Alizadeh",
+    "Bang Liu",
+    "Wei Ma",
+    "Lijun Sun"
+   ],
+   "published": "2026-06-01",
+   "abstract": "Human mobility generation aims to synthesize realistic trip chains for target populations based on individual features. Existing paradigms, including deep generative models, LLM-based methods, and traditional heuristics, struggle to satisfy the complex demands of this task while simultaneously maintaining interpretability, behavioral plausibility, population-level distributional alignment, and inference efficiency. To bridge this gap, we introduce MobEvolve, the first agentic self-evolving heuristic framework for human mobility generation. MobEvolve initializes a behavior-inspired heuristic system and employs an LLM agent to iteratively evolve its internal logic. By diagnosing empirical misalignments and failure cases on a validation set, the agent proposes targeted updates and accumulates evolution memory for cumulative self-improvement. Extensive evaluations on the Singapore and Montreal benchmarks demonstrate that MobEvolve significantly outperforms state-of-the-art deep generative and LLM-based methods in individual trajectory fidelity, population-level distribution alignment, and behavioral plausibility, while preserving interpretability and high inference efficiency.",
+   "url": "http://arxiv.org/abs/2606.01640v1"
+  },
+  {
+   "arxiv_id": "2609.31505v1",
+   "title": "Prompt Minimization: Reducing Input Redundancy Without Sacrificing Output Fidelity",
+   "authors": [
+    "Marius F. R. Juston",
+    "Kevin A. Karim",
+    "Jonathan Gao",
+    "Kevin C. Li",
+    "Rudhi Bashambu"
+   ],
+   "published": "2026-09-25",
+   "abstract": "Despite the growing capabilities of large language models (LLMs), prompt design remains largely heuristic and ad hoc. This project will explore $\\textit{prompt minimization}$, the process of reducing prompts to their smallest, most information-dense form while preserving output fidelity. Practically, shorter prompts reduce computational overhead and inference latency, especially when large contexts, such as entire documents or codebases, are included unnecessarily. Further, longer prompts can damage LLM reasoning and accuracy. Theoretically, the existence of multiple prompts yielding equivalent outputs suggests a high degree of redundancy in the input space, raising fundamental questions about what information is essential to elicit specific model behaviors. We propose three variant frameworks to identify and evaluate minimal prompts and demonstrate that minimal prompts often produce outputs comparable to those of their longer counterparts. These findings suggest new directions for efficient prompt engineering and deepen our understanding of input compression in LLMs.",
+   "url": "http://arxiv.org/abs/2609.31505v1"
+  },
+  {
+   "arxiv_id": "2601.07375v1",
+   "title": "GROKE: Vision-Free Navigation Instruction Evaluation via Graph Reasoning on OpenStreetMap",
+   "authors": [
+    "Farzad Shami",
+    "Subhrasankha Dey",
+    "Nico Van de Weghe",
+    "Henrikki Tenkanen"
+   ],
+   "published": "2026-01-12",
+   "abstract": "The evaluation of navigation instructions remains a persistent challenge in Vision-and-Language Navigation (VLN) research. Traditional reference-based metrics such as BLEU and ROUGE fail to capture the functional utility of spatial directives, specifically whether an instruction successfully guides a navigator to the intended destination. Although existing VLN agents could serve as evaluators, their reliance on high-fidelity visual simulators introduces licensing constraints and computational costs, and perception errors further confound linguistic quality assessment. This paper introduces GROKE(Graph-based Reasoning over OSM Knowledge for instruction Evaluation), a vision-free training-free hierarchical LLM-based framework for evaluating navigation instructions using OpenStreetMap data. Through systematic ablation studies, we demonstrate that structured JSON and textual formats for spatial information substantially outperform grid-based and visual graph representations. Our hierarchical architecture combines sub-instruction planning with topological graph navigation, reducing navigation error by 68.5% compared to heuristic and sampling baselines on the Map2Seq dataset. The agent's execution success, trajectory fidelity, and decision patterns serve as proxy metrics for functional navigability given OSM-visible landmarks and topology, establishing a scalable and interpretable evaluation paradigm without visual dependencies. Code and data are available at https://anonymous.4open.science/r/groke.",
+   "url": "http://arxiv.org/abs/2601.07375v1"
+  },
+  {
+   "arxiv_id": "2511.04502v1",
+   "title": "RAGalyst: Automated Human-Aligned Agentic Evaluation for Domain-Specific RAG",
+   "authors": [
+    "Joshua Gao",
+    "Quoc Huy Pham",
+    "Subin Varghese",
+    "Silwal Saurav",
+    "Vedhus Hoskere"
+   ],
+   "published": "2025-11-06",
+   "abstract": "Retrieval-Augmented Generation (RAG) is a critical technique for grounding Large Language Models (LLMs) in factual evidence, yet evaluating RAG systems in specialized, safety-critical domains remains a significant challenge. Existing evaluation frameworks often rely on heuristic-based metrics that fail to capture domain-specific nuances and other works utilize LLM-as-a-Judge approaches that lack validated alignment with human judgment. This paper introduces RAGalyst, an automated, human-aligned agentic framework designed for the rigorous evaluation of domain-specific RAG systems. RAGalyst features an agentic pipeline that generates high-quality, synthetic question-answering (QA) datasets from source documents, incorporating an agentic filtering step to ensure data fidelity. The framework refines two key LLM-as-a-Judge metrics-Answer Correctness and Answerability-using prompt optimization to achieve a strong correlation with human annotations. Applying this framework to evaluate various RAG components across three distinct domains (military operations, cybersecurity, and bridge engineering), we find that performance is highly context-dependent. No single embedding model, LLM, or hyperparameter configuration proves universally optimal. Additionally, we provide an analysis on the most common low Answer Correctness reasons in RAG. These findings highlight the necessity of a systematic evaluation framework like RAGalyst, which empowers practitioners to uncover domain-specific trade-offs and make informed design choices for building reliable and effective RAG systems. RAGalyst is available on our Github.",
+   "url": "http://arxiv.org/abs/2511.04502v1"
+  },
+  {
+   "arxiv_id": "2605.09542v1",
+   "title": "LLM-Guided Monte Carlo Tree Search over Knowledge Graphs: Composing Mechanistic Explanations for Drug-Disease Pairs",
+   "authors": [
+    "Rishabh Jakhar",
+    "Michel Dumontier",
+    "Remzi Celebi"
+   ],
+   "published": "2026-05-10",
+   "abstract": "Extracting multi-step explanations from knowledge graphs poses a combinatorial challenge requiring both heuristic guidance (as candidates proliferate with depth) and credit assignment (as path quality emerges over extended sequences). Frontier LLMs, strong on knowledge/reasoning benchmarks, offer a compelling source of such heuristics, yet their knowledge comes sans guarantees and compositional performance degrades as chains lengthen. We thus present TESSERA, a 3-part neuro-symbolic framework that uses LLMs in a circumscribed role: for local discriminative judgement rather than autonomous multi-step generation; the knowledge graph then defines the hypothesis space enforcing hard structural constraints, and MCTS coordinates the long-horizon search with principled credit assignment via backpropagation. LLMs perform dual roles as a prior policy biasing exploration and a comparative state evaluator supplying reward signals. Evaluation on drug mechanism elucidation across two complementary knowledge graphs demonstrates fidelity to curated biology while surfacing coherent alternative mechanisms, with ablations confirming discriminative contribution from both LLM components. Beyond its current application, our framework offers a general paradigm for compositional reasoning over structured knowledge.",
+   "url": "http://arxiv.org/abs/2605.09542v1"
+  }
+ ],
+ "all:FunSearch AND all:\"bin packing\"|6|relevance": [
+  {
+   "arxiv_id": "2601.16849v1",
+   "title": "The Art of Being Difficult: Combining Human and AI Strengths to Find Adversarial Instances for Heuristics",
+   "authors": [
+    "Henri Nikoleit",
+    "Ankit Anand",
+    "Anurag Murty Naredla",
+    "Heiko R\u00f6glin"
+   ],
+   "published": "2026-01-23",
+   "abstract": "We demonstrate the power of human-LLM collaboration in tackling open problems in theoretical computer science. Focusing on combinatorial optimization, we refine outputs from the FunSearch algorithm [Romera-Paredes et al., Nature 2023] to derive state-of-the-art lower bounds for standard heuristics. Specifically, we target the generation of adversarial instances where these heuristics perform poorly. By iterating on FunSearch's outputs, we identify improved constructions for hierarchical $k$-median clustering, bin packing, the knapsack problem, and a generalization of Lov\u00e1sz's gasoline problem - some of these have not seen much improvement for over a decade, despite intermittent attention. These results illustrate how expert oversight can effectively extrapolate algorithmic insights from LLM-based evolutionary methods to break long-standing barriers. Our findings demonstrate that while LLMs provide critical initial patterns, human expertise is essential for transforming these patterns into mathematically rigorous and insightful constructions. This work highlights that LLMs are a strong collaborative tool in mathematics and computer science research.",
+   "url": "http://arxiv.org/abs/2601.16849v1"
+  },
+  {
+   "arxiv_id": "2401.02051v3",
+   "title": "Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model",
+   "authors": [
+    "Fei Liu",
+    "Xialiang Tong",
+    "Mingxuan Yuan",
+    "Xi Lin",
+    "Fu Luo",
+    "Zhenkun Wang",
+    "Zhichao Lu",
+    "Qingfu Zhang"
+   ],
+   "published": "2024-01-04",
+   "abstract": "Heuristics are widely used for dealing with complex search and optimization problems. However, manual design of heuristics can be often very labour extensive and requires rich working experience and knowledge. This paper proposes Evolution of Heuristic (EoH), a novel evolutionary paradigm that leverages both Large Language Models (LLMs) and Evolutionary Computation (EC) methods for Automatic Heuristic Design (AHD). EoH represents the ideas of heuristics in natural language, termed thoughts. They are then translated into executable codes by LLMs. The evolution of both thoughts and codes in an evolutionary search framework makes it very effective and efficient for generating high-performance heuristics. Experiments on three widely studied combinatorial optimization benchmark problems demonstrate that EoH outperforms commonly used handcrafted heuristics and other recent AHD methods including FunSearch. Particularly, the heuristic produced by EoH with a low computational budget (in terms of the number of queries to LLMs) significantly outperforms widely-used human hand-crafted baseline algorithms for the online bin packing problem.",
+   "url": "http://arxiv.org/abs/2401.02051v3"
+  }
+ ],
+ "ti:\"Evolution of Heuristics\" AND all:\"large language model\"|5|relevance": [
+  {
+   "arxiv_id": "2409.16867v2",
+   "title": "Multi-objective Evolution of Heuristic Using Large Language Model",
+   "authors": [
+    "Shunyu Yao",
+    "Fei Liu",
+    "Xi Lin",
+    "Zhichao Lu",
+    "Zhenkun Wang",
+    "Qingfu Zhang"
+   ],
+   "published": "2024-09-25",
+   "abstract": "Heuristics are commonly used to tackle various search and optimization problems. Design heuristics usually require tedious manual crafting with domain knowledge. Recent works have incorporated Large Language Models (LLMs) into automatic heuristic search, leveraging their powerful language and coding capacity. However, existing research focuses on the optimal performance on the target problem as the sole objective, neglecting other criteria such as efficiency and scalability, which are vital in practice. To tackle this challenge, we propose to model the heuristic search as a multi-objective optimization problem and consider introducing additional practical criteria beyond optimal performance. Due to the complexity of the search space, conventional multi-objective optimization methods struggle to effectively handle LLM-based multi-objective heuristic search. We propose the first LLM-based multi-objective heuristic search framework, Multi-objective Evolution of Heuristic (MEoH), which integrates LLMs in a zero-shot manner to generate a non-dominated set of heuristics to meet multiple design criteria. We design a new dominance-dissimilarity mechanism for effective population management and selection, which incorporates both code dissimilarity in the search space and dominance in the objective space. MEoH is demonstrated in two well-known combinatorial optimization problems: the online Bin Packing Problem (BPP) and the Traveling Salesman Problem (TSP). The results indicate that a variety of elite heuristics are automatically generated in a single run, offering more trade-off options than the existing methods. It successfully achieves competitive or superior performance while improving efficiency up to 10 times. Moreover, we also observe that the multi-objective search introduces novel insights into heuristic design and leads to the discovery of diverse heuristics.",
+   "url": "http://arxiv.org/abs/2409.16867v2"
+  },
+  {
+   "arxiv_id": "2401.02051v3",
+   "title": "Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model",
+   "authors": [
+    "Fei Liu",
+    "Xialiang Tong",
+    "Mingxuan Yuan",
+    "Xi Lin",
+    "Fu Luo",
+    "Zhenkun Wang",
+    "Zhichao Lu",
+    "Qingfu Zhang"
+   ],
+   "published": "2024-01-04",
+   "abstract": "Heuristics are widely used for dealing with complex search and optimization problems. However, manual design of heuristics can be often very labour extensive and requires rich working experience and knowledge. This paper proposes Evolution of Heuristic (EoH), a novel evolutionary paradigm that leverages both Large Language Models (LLMs) and Evolutionary Computation (EC) methods for Automatic Heuristic Design (AHD). EoH represents the ideas of heuristics in natural language, termed thoughts. They are then translated into executable codes by LLMs. The evolution of both thoughts and codes in an evolutionary search framework makes it very effective and efficient for generating high-performance heuristics. Experiments on three widely studied combinatorial optimization benchmark problems demonstrate that EoH outperforms commonly used handcrafted heuristics and other recent AHD methods including FunSearch. Particularly, the heuristic produced by EoH with a low computational budget (in terms of the number of queries to LLMs) significantly outperforms widely-used human hand-crafted baseline algorithms for the online bin packing problem.",
+   "url": "http://arxiv.org/abs/2401.02051v3"
+  },
+  {
+   "arxiv_id": "2409.09063v1",
+   "title": "TS-EoH: An Edge Server Task Scheduling Algorithm Based on Evolution of Heuristic",
+   "authors": [
+    "Wang Yatong",
+    "Pei Yuchen",
+    "Zhao Yuqi"
+   ],
+   "published": "2024-09-04",
+   "abstract": "With the widespread adoption of 5G and Internet of Things (IoT) technologies, the low latency provided by edge computing has great importance for real-time processing. However, managing numerous simultaneous service requests poses a significant challenge to maintaining low latency. Current edge server task scheduling methods often fail to balance multiple optimization goals effectively. This paper introduces a novel task-scheduling approach based on Evolutionary Computing (EC) theory and heuristic algorithms. We model service requests as task sequences and evaluate various scheduling schemes during each evolutionary process using Large Language Models (LLMs) services. Experimental results show that our task-scheduling algorithm outperforms existing heuristic and traditional reinforcement learning methods. Additionally, we investigate the effects of different heuristic strategies and compare the evolutionary outcomes across various LLM services.",
+   "url": "http://arxiv.org/abs/2409.09063v1"
+  },
+  {
+   "arxiv_id": "2508.03082v2",
+   "title": "EoH-S: Evolution of Heuristic Set using LLMs for Automated Heuristic Design",
+   "authors": [
+    "Fei Liu",
+    "Yilu Liu",
+    "Qingfu Zhang",
+    "Xialiang Tong",
+    "Mingxuan Yuan"
+   ],
+   "published": "2025-08-05",
+   "abstract": "Automated Heuristic Design (AHD) using Large Language Models (LLMs) has achieved notable success in recent years. Despite the effectiveness of existing approaches, they only design a single heuristic to serve all problem instances, often inducing poor generalization across different distributions or settings. To address this issue, we propose Automated Heuristic Set Design (AHSD), a new formulation for LLM-driven AHD. The aim of AHSD is to automatically generate a small-sized complementary heuristic set to serve diverse problem instances, such that each problem instance could be optimized by at least one heuristic in this set. We show that the objective function of AHSD is monotone and supermodular. Then, we propose Evolution of Heuristic Set (EoH-S) to apply the AHSD formulation for LLM-driven AHD. With two novel mechanisms of complementary population management and complementary-aware memetic search, EoH-S could effectively generate a set of high-quality and complementary heuristics. Comprehensive experimental results on three AHD tasks with diverse instances spanning various sizes and distributions demonstrate that EoH-S consistently outperforms existing state-of-the-art AHD methods and achieves up to 60\\% performance improvements.",
+   "url": "http://arxiv.org/abs/2508.03082v2"
+  }
+ ],
+ "ti:ReEvo AND all:\"reflective evolution\"|5|relevance": [
+  {
+   "arxiv_id": "2402.01145v3",
+   "title": "ReEvo: Large Language Models as Hyper-Heuristics with Reflective Evolution",
+   "authors": [
+    "Haoran Ye",
+    "Jiarui Wang",
+    "Zhiguang Cao",
+    "Federico Berto",
+    "Chuanbo Hua",
+    "Haeyeon Kim",
+    "Jinkyoo Park",
+    "Guojie Song"
+   ],
+   "published": "2024-02-02",
+   "abstract": "The omnipresence of NP-hard combinatorial optimization problems (COPs) compels domain experts to engage in trial-and-error heuristic design. The long-standing endeavor of design automation has gained new momentum with the rise of large language models (LLMs). This paper introduces Language Hyper-Heuristics (LHHs), an emerging variant of Hyper-Heuristics that leverages LLMs for heuristic generation, featuring minimal manual intervention and open-ended heuristic spaces. To empower LHHs, we present Reflective Evolution (ReEvo), a novel integration of evolutionary search for efficiently exploring the heuristic space, and LLM reflections to provide verbal gradients within the space. Across five heterogeneous algorithmic types, six different COPs, and both white-box and black-box views of COPs, ReEvo yields state-of-the-art and competitive meta-heuristics, evolutionary algorithms, heuristics, and neural solvers, while being more sample-efficient than prior LHHs.",
+   "url": "http://arxiv.org/abs/2402.01145v3"
+  }
+ ],
+ "all:AlphaEvolve AND all:evolutionary coding agent|5|relevance": [
+  {
+   "arxiv_id": "2506.13131v1",
+   "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+   "authors": [
+    "Alexander Novikov",
+    "Ng\u00e2n V\u0169",
+    "Marvin Eisenberger",
+    "Emilien Dupont",
+    "Po-Sen Huang",
+    "Adam Zsolt Wagner",
+    "Sergey Shirobokov",
+    "Borislav Kozlovskii",
+    "Francisco J. R. Ruiz",
+    "Abbas Mehrabian",
+    "M. Pawan Kumar",
+    "Abigail See",
+    "Swarat Chaudhuri",
+    "George Holland",
+    "Alex Davies",
+    "Sebastian Nowozin",
+    "Pushmeet Kohli",
+    "Matej Balog"
+   ],
+   "published": "2025-06-16",
+   "abstract": "In this white paper, we present AlphaEvolve, an evolutionary coding agent that substantially enhances capabilities of state-of-the-art LLMs on highly challenging tasks such as tackling open scientific problems or optimizing critical pieces of computational infrastructure. AlphaEvolve orchestrates an autonomous pipeline of LLMs, whose task is to improve an algorithm by making direct changes to the code. Using an evolutionary approach, continuously receiving feedback from one or more evaluators, AlphaEvolve iteratively improves the algorithm, potentially leading to new scientific and practical discoveries. We demonstrate the broad applicability of this approach by applying it to a number of important computational problems. When applied to optimizing critical components of large-scale computational stacks at Google, AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated discovery methods (Romera-Paredes et al., 2023). Notably, AlphaEvolve developed a search algorithm that found a procedure to multiply two $4 \\times 4$ complex-valued matrices using $48$ scalar multiplications; offering the first improvement, after 56 years, over Strassen's algorithm in this setting. We believe AlphaEvolve and coding agents like it can have a significant impact in improving solutions of problems across many areas of science and computation.",
+   "url": "http://arxiv.org/abs/2506.13131v1"
+  },
+  {
+   "arxiv_id": "2605.14718v1",
+   "title": "Adapting AlphaEvolve to Optimize Fully Homomorphic Encryption on TPUs",
+   "authors": [
+    "Shruthi Gorantala",
+    "Jianming Tong",
+    "Asra Ali",
+    "Baiyu Li",
+    "Jonathan Katz",
+    "Jeremy Kun",
+    "Thomas Steinke",
+    "Abhradeep Thakurta",
+    "Julian Walker",
+    "Amir Yazdanbakhsh"
+   ],
+   "published": "2026-05-14",
+   "abstract": "The deployment of Fully Homomorphic Encryption (FHE) at scale is hindered due to its heavy computational overhead. While specialized hardware accelerators like Google Tensor Processing Units (TPUs) can help, mapping complex cryptographic kernels onto such architectures remains a challenge. Efficient execution requires co-optimization between the systolic array-based Matrix Multiplication Unit (MXU) and Vector Processing Units (VPUs), as well as the orchestration of data movement across the vector register files. Existing compiler stacks often abstract low-level hardware utilization, requiring developers to adopt a manual trial-and-error process that often results in fragmented execution and underutilized resources. To accelerate this development process, we use AlphaEvolve to automate the exploration of hardware-aware cryptographic-kernel optimizations. We frame optimization as an evolutionary search problem, utilizing the closed-loop system provided by AlphaEvolve, that leverages LLM-driven code generation. We use real-world feedback from hardware execution and rigorous correctness testing to guide the evolution process. We evaluate AlphaEvolve optimization on primitives for both the TFHE (Jaxite) and CKKS (CROSS) FHE schemes on Google Cloud TPUv5e, a contemporary TPU architecture. Within 24 hours of automated exploration, AlphaEvolve discovered implementation-level optimizations that improve TFHE bootstrap latency by 2.5x and CKKS rotation and multiplication latency by 1.31x and 1.18x, respectively, relative to human-engineered state of the art. These results demonstrate that AlphaEvolve can be used to enable researchers to navigate the optimization trade-offs between cryptography, compilers, and hardware accelerators.",
+   "url": "http://arxiv.org/abs/2605.14718v1"
+  },
+  {
+   "arxiv_id": "2510.14150v6",
+   "title": "CodeEvolve: an open source evolutionary coding agent for algorithmic discovery and optimization",
+   "authors": [
+    "Henrique Assump\u00e7\u00e3o",
+    "Diego Ferreira",
+    "Leandro Campos",
+    "Fabricio Murai"
+   ],
+   "published": "2025-10-15",
+   "abstract": "We introduce CodeEvolve, an open-source framework that couples large language models with island-based evolutionary search for end-to-end algorithmic discovery. CodeEvolve integrates inspiration-based crossover, meta-prompting, and depth-based refinement on top of a CVT-MAP-Elites archive and a weighted LLM ensemble to generate optimized solutions for complex problems. On the AlphaEvolve benchmark suite, CodeEvolve matches or surpasses the reported AlphaEvolve results on 5 of 9 problems and, under matched conditions, outperforms the open-source frameworks OpenEvolve and ShinkaEvolve on 6 of 9. With the open-weight Qwen3-Coder-30B backbone, it surpasses the reported AlphaEvolve score on both CirclePackingSquare instances at roughly an order of magnitude lower cost than a frontier closed-source ensemble, and remains competitive with EoH on heuristic-design tasks without retuning. Ablations show that the interaction between CodeEvolve's components, rather than any single operator, drives these results. We release the framework, experimental data, and practical hyperparameter guidelines at https://github.com/inter-co/science-codeevolve.",
+   "url": "http://arxiv.org/abs/2510.14150v6"
+  },
+  {
+   "arxiv_id": "2608.23691v2",
+   "title": "Autonomous Mathematical Discovery in an Open-World Multi-Agent Environment",
+   "authors": [
+    "Stephen Chung",
+    "Wenyu Du",
+    "William J. Wesley"
+   ],
+   "published": "2026-08-24",
+   "abstract": "We study autonomous mathematical discovery in the Station, an open-world multi-agent environment in which AI agents from different model families pursue a shared research goal without a central coordinator or scripted pipeline. Agents choose their own research directions, conduct experiments, collaborate and publish papers. These papers accumulate into a shared body of knowledge that later agents can read, cite and extend. We evaluated the Station on 12 mathematical construction problems from the AlphaEvolve study and two additional case studies. Five of the 12 problems yielded results novel relative to the prior literature: a new infinite family of finite field Kakeya sets, new exact 604-point kissing configurations in eleven dimensions, improved bounds for the discretized Kakeya needle and sign uncertainty problems, and a substantially improved lower bound for Erd\u0151s's minimum overlap problem. Agents also discovered novel infinite families for Book Ramsey numbers. Their research extended beyond searching for high-scoring constructions: agents developed explanations of their findings and proved theorems outside the assigned tasks. These explanations guided further discoveries and were preserved in the agents' papers, making the underlying insights easier for external researchers to understand and build upon. All presented discoveries are supported by exact constructions or proofs formally verified in Lean. We release the source code, full agent dialogues, papers and verification code, providing a transparent record of how these discoveries emerged.",
+   "url": "http://arxiv.org/abs/2608.23691v2"
+  },
+  {
+   "arxiv_id": "2510.06056v1",
+   "title": "Scientific Algorithm Discovery by Augmenting AlphaEvolve with Deep Research",
+   "authors": [
+    "Gang Liu",
+    "Yihan Zhu",
+    "Jie Chen",
+    "Meng Jiang"
+   ],
+   "published": "2025-10-07",
+   "abstract": "Large language models hold promise as scientific assistants, yet existing agents either rely solely on algorithm evolution or on deep research in isolation, both of which face critical limitations. Pure algorithm evolution, as in AlphaEvolve, depends only on the internal knowledge of LLMs and quickly plateaus in complex domains, while pure deep research proposes ideas without validation, resulting in unrealistic or unimplementable solutions. We present DeepEvolve, an agent that integrates deep research with algorithm evolution, uniting external knowledge retrieval, cross-file code editing, and systematic debugging under a feedback-driven iterative loop. Each iteration not only proposes new hypotheses but also refines, implements, and tests them, avoiding both shallow improvements and unproductive over-refinements. Across nine benchmarks in chemistry, mathematics, biology, materials, and patents, DeepEvolve consistently improves the initial algorithm, producing executable new algorithms with sustained gains. By bridging the gap between unguided evolution and research without grounding, DeepEvolve provides a reliable framework for advancing scientific algorithm discovery. Our code is available at https://github.com/liugangcode/deepevolve.",
+   "url": "http://arxiv.org/abs/2510.06056v1"
+  }
+ ],
+ "all:\"online bin packing\" AND (all:\"reinforcement learning\" OR all:\"learned\" OR all:\"genetic programming\")|6|relevance": [
+  {
+   "arxiv_id": "2007.00463v1",
+   "title": "A Generalized Reinforcement Learning Algorithm for Online 3D Bin-Packing",
+   "authors": [
+    "Richa Verma",
+    "Aniruddha Singhal",
+    "Harshad Khadilkar",
+    "Ansuma Basumatary",
+    "Siddharth Nayak",
+    "Harsh Vardhan Singh",
+    "Swagat Kumar",
+    "Rajesh Sinha"
+   ],
+   "published": "2020-07-01",
+   "abstract": "We propose a Deep Reinforcement Learning (Deep RL) algorithm for solving the online 3D bin packing problem for an arbitrary number of bins and any bin size. The focus is on producing decisions that can be physically implemented by a robotic loading arm, a laboratory prototype used for testing the concept. The problem considered in this paper is novel in two ways. First, unlike the traditional 3D bin packing problem, we assume that the entire set of objects to be packed is not known a priori. Instead, a fixed number of upcoming objects is visible to the loading system, and they must be loaded in the order of arrival. Second, the goal is not to move objects from one point to another via a feasible path, but to find a location and orientation for each object that maximises the overall packing efficiency of the bin(s). Finally, the learnt model is designed to work with problem instances of arbitrary size without retraining. Simulation results show that the RL-based method outperforms state-of-the-art online bin packing heuristics in terms of empirical competitive ratio and volume efficiency.",
+   "url": "http://arxiv.org/abs/2007.00463v1"
+  },
+  {
+   "arxiv_id": "2603.23042v1",
+   "title": "Minimizing Material Waste in Additive Manufacturing through Online Reel Assignment",
+   "authors": [
+    "Ilayda Celenk",
+    "Willem van Jaarsveld",
+    "Ivo J. B. F. Adan",
+    "Alp Akcay"
+   ],
+   "published": "2026-03-24",
+   "abstract": "We study a variant of the online bin packing problem that arises in filament-based 3D printing systems operating in make-to-order settings, where only a limited number of filament reels of finite capacity can be handled at once. Components are assigned to reels upon arrival and insufficient reels are discarded to be replaced with new ones, resulting in material waste. To minimize the long-run average discarded filament through an online assignment policy, we formulate this problem as an infinite-horizon average-cost Markov Decision Process and analyze the structure of policies under stochastic, sequential demand. We first show that under a random allocation policy, the system decomposes into a collection of identical single-reel processes, allowing us to derive a closed-form expression for the average waste and enabling a tractable baseline analysis. Building on this decomposition, we construct a theoretically grounded index policy that assigns each reel a score reflecting the marginal cost of assignment and prove that it constitutes a one-step policy improvement over random allocation. We embed the index-based structure within a Deep Reinforcement Learning framework using approximate policy iteration. The resulting method achieves near-optimal performance across a range of simulated and real-world scenarios. Our results demonstrate that Reinforcement Learning policy significantly reduces material waste while maintaining real-time feasibility and interpretability.",
+   "url": "http://arxiv.org/abs/2603.23042v1"
+  },
+  {
+   "arxiv_id": "2507.09123v1",
+   "title": "Online 3D Bin Packing with Fast Stability Validation and Stable Rearrangement Planning",
+   "authors": [
+    "Ziyan Gao",
+    "Lijun Wang",
+    "Yuntao Kong",
+    "Nak Young Chong"
+   ],
+   "published": "2025-07-12",
+   "abstract": "The Online Bin Packing Problem (OBPP) is a sequential decision-making task in which each item must be placed immediately upon arrival, with no knowledge of future arrivals. Although recent deep-reinforcement-learning methods achieve superior volume utilization compared with classical heuristics, the learned policies cannot ensure the structural stability of the bin and lack mechanisms for safely reconfiguring the bin when a new item cannot be placed directly. In this work, we propose a novel framework that integrates packing policy with structural stability validation and heuristic planning to overcome these limitations. Specifically, we introduce the concept of Load Bearable Convex Polygon (LBCP), which provides a computationally efficient way to identify stable loading positions that guarantee no bin collapse. Additionally, we present Stable Rearrangement Planning (SRP), a module that rearranges existing items to accommodate new ones while maintaining overall stability. Extensive experiments on standard OBPP benchmarks demonstrate the efficiency and generalizability of our LBCP-based stability validation, as well as the superiority of SRP in finding the effort-saving rearrangement plans. Our method offers a robust and practical solution for automated packing in real-world industrial and logistics applications.",
+   "url": "http://arxiv.org/abs/2507.09123v1"
+  },
+  {
+   "arxiv_id": "2605.17137v1",
+   "title": "Latent Heuristic Search: Continuous Optimization for Automated Algorithm Design",
+   "authors": [
+    "Cheikh Ahmed",
+    "Mahdi Mostajabdaveh",
+    "Zirui Zhou"
+   ],
+   "published": "2026-05-16",
+   "abstract": "The integration of Large Language Models (LLMs) into evolutionary frameworks has established a new paradigm for automated heuristic discovery. Despite their promise, these methods typically search in the discrete space of program syntax, relying on stochastic sampling to navigate a highly non-convex optimization landscape. This work proposes a continuous heuristic discovery framework that shifts optimization to a learned latent manifold. We employ an encoder to map discrete programs into continuous embeddings and train a differentiable surrogate model to predict performance, enabling gradient-based search. To regularize the optimization trajectory, an invertible normalizing flow maps these embeddings to a structured Gaussian prior, where we perform gradient ascent. The resulting optimized latent vectors are projected through a learned mapper into soft prompts, which condition a frozen LLM to synthesize novel executable heuristics. We evaluate the proposed method on the Traveling Salesman Problem (TSP), the Capacitated Vehicle Routing Problem (CVRP), the Knapsack Problem (KSP), and Online Bin Packing (OBP). Empirical results demonstrate that continuous latent-space optimization achieves performance competitive with state-of-the-art discrete evolutionary baselines while offering a complementary methodological alternative for automated algorithm design. The implementation code is available at \\url{https://github.com/cheikh025/LHS}.",
+   "url": "http://arxiv.org/abs/2605.17137v1"
+  },
+  {
+   "arxiv_id": "2406.16609v1",
+   "title": "Evaluating the Robustness of Deep-Learning Algorithm-Selection Models by Evolving Adversarial Instances",
+   "authors": [
+    "Emma Hart",
+    "Quentin Renau",
+    "Kevin Sim",
+    "Mohamad Alissa"
+   ],
+   "published": "2024-06-24",
+   "abstract": "Deep neural networks (DNN) are increasingly being used to perform algorithm-selection in combinatorial optimisation domains, particularly as they accommodate input representations which avoid designing and calculating features. Mounting evidence from domains that use images as input shows that deep convolutional networks are vulnerable to adversarial samples, in which a small perturbation of an instance can cause the DNN to misclassify. However, it remains unknown as to whether deep recurrent networks (DRN) which have recently been shown promise as algorithm-selectors in the bin-packing domain are equally vulnerable. We use an evolutionary algorithm (EA) to find perturbations of instances from two existing benchmarks for online bin packing that cause trained DRNs to misclassify: adversarial samples are successfully generated from up to 56% of the original instances depending on the dataset. Analysis of the new misclassified instances sheds light on the `fragility' of some training instances, i.e. instances where it is trivial to find a small perturbation that results in a misclassification and the factors that influence this. Finally, the method generates a large number of new instances misclassified with a wide variation in confidence, providing a rich new source of training data to create more robust models.",
+   "url": "http://arxiv.org/abs/2406.16609v1"
+  },
+  {
+   "arxiv_id": "2503.03350v1",
+   "title": "Leveraging Large Language Models to Develop Heuristics for Emerging Optimization Problems",
+   "authors": [
+    "Thomas B\u00f6mer",
+    "Nico Koltermann",
+    "Max Disselnmeyer",
+    "Laura D\u00f6rr",
+    "Anne Meyer"
+   ],
+   "published": "2025-03-05",
+   "abstract": "Combinatorial optimization problems often rely on heuristic algorithms to generate efficient solutions. However, the manual design of heuristics is resource-intensive and constrained by the designer's expertise. Recent advances in artificial intelligence, particularly large language models (LLMs), have demonstrated the potential to automate heuristic generation through evolutionary frameworks. Recent works focus only on well-known combinatorial optimization problems like the traveling salesman problem and online bin packing problem when designing constructive heuristics. This study investigates whether LLMs can effectively generate heuristics for niche, not yet broadly researched optimization problems, using the unit-load pre-marshalling problem as an example case. We propose the Contextual Evolution of Heuristics (CEoH) framework, an extension of the Evolution of Heuristics (EoH) framework, which incorporates problem-specific descriptions to enhance in-context learning during heuristic generation. Through computational experiments, we evaluate CEoH and EoH and compare the results. Results indicate that CEoH enables smaller LLMs to generate high-quality heuristics more consistently and even outperform larger models. Larger models demonstrate robust performance with or without contextualized prompts. The generated heuristics exhibit scalability to diverse instance configurations.",
+   "url": "http://arxiv.org/abs/2503.03350v1"
+  }
+ ],
+ "all:\"LLM\" AND all:heuristic AND all:evaluation AND (all:\"early stopping\" OR all:\"surrogate\" OR all:\"cheap evaluation\")|6|relevance": [
+  {
+   "arxiv_id": "2607.13911v1",
+   "title": "How to Guide LLM Generation: Dual-Surrogate Guided Search for Automated Heuristic Design",
+   "authors": [
+    "Yuhan Wang",
+    "Chaoda Peng",
+    "Xingyu Wu",
+    "Sheng-Hao Wu",
+    "Zhi-Hui Zhan"
+   ],
+   "published": "2026-07-15",
+   "abstract": "Large language models (LLMs) have made automated heuristic design (AHD) increasingly practical by generating executable heuristic code from task descriptions and evaluator feedback. Yet under a limited query and evaluation budget, search efficiency depends critically on a pre-generation decision. Before each LLM query and black-box evaluation, the system must choose which archived heuristics to reuse as parents and which generation operator should transform them. Existing methods typically choose such actions with predefined rules, leaving the expected outcome of each concrete operator-parent action only indirectly modeled. Therefore, we propose \\emph{\\fullmethod{}} (\\method{}), a surrogate-guided action-selection module for operator-parent selection in LLM-based AHD. \\method{} guides the LLM code-generation process by scoring pre-generation actions with two complementary surrogates. Specifically, a transition surrogate is proposed to predict the latent distribution of the child representation induced by an operator-parent action, while an instance-conditioned utility surrogate is proposed to estimate the expected performance of sampled child latents. Moreover, we propose an uncertainty-aware acquisition rule that combines predicted utility, utility uncertainty, and transition uncertainty to select the next LLM generation action. Across a diverse heuristic-design suite, \\method{} is competitive with strong LLM-AHD baselines, and ablation and action-selection analyses suggest that its behavior goes beyond simple archive ranking or fixed operator preferences.",
+   "url": "http://arxiv.org/abs/2607.13911v1"
+  },
+  {
+   "arxiv_id": "2605.17137v1",
+   "title": "Latent Heuristic Search: Continuous Optimization for Automated Algorithm Design",
+   "authors": [
+    "Cheikh Ahmed",
+    "Mahdi Mostajabdaveh",
+    "Zirui Zhou"
+   ],
+   "published": "2026-05-16",
+   "abstract": "The integration of Large Language Models (LLMs) into evolutionary frameworks has established a new paradigm for automated heuristic discovery. Despite their promise, these methods typically search in the discrete space of program syntax, relying on stochastic sampling to navigate a highly non-convex optimization landscape. This work proposes a continuous heuristic discovery framework that shifts optimization to a learned latent manifold. We employ an encoder to map discrete programs into continuous embeddings and train a differentiable surrogate model to predict performance, enabling gradient-based search. To regularize the optimization trajectory, an invertible normalizing flow maps these embeddings to a structured Gaussian prior, where we perform gradient ascent. The resulting optimized latent vectors are projected through a learned mapper into soft prompts, which condition a frozen LLM to synthesize novel executable heuristics. We evaluate the proposed method on the Traveling Salesman Problem (TSP), the Capacitated Vehicle Routing Problem (CVRP), the Knapsack Problem (KSP), and Online Bin Packing (OBP). Empirical results demonstrate that continuous latent-space optimization achieves performance competitive with state-of-the-art discrete evolutionary baselines while offering a complementary methodological alternative for automated algorithm design. The implementation code is available at \\url{https://github.com/cheikh025/LHS}.",
+   "url": "http://arxiv.org/abs/2605.17137v1"
+  },
+  {
+   "arxiv_id": "2605.17000v1",
+   "title": "BoLT: A Benchmark to Democratize Black-box Optimization Research for Expensive LLM Tasks",
+   "authors": [
+    "Ruth Wan Theng Chew",
+    "Zhiliang Chen",
+    "Apivich Hemachandra",
+    "Bryan Kian Hsiang Low"
+   ],
+   "published": "2026-05-16",
+   "abstract": "Optimization of LLM training and inference configurations, such as hyperparameters, data mixtures, and prompts, is critical to performance, but it is often approached heuristically in practice, leading to potentially suboptimal outcomes. By framing them as noisy, expensive, and derivative-free optimization problems, Bayesian optimization (BO) and other black-box optimization (BBO) methods offer a promising yet underexplored direction for principled, sample-efficient methods. However, LLM training and inference costs are prohibitively high for most of the BBO research community, and new methods are often only evaluated on synthetic test functions and small-scale datasets that fail to capture the challenges of modern LLM optimization problems. This impedes the development of BBO methods and makes it difficult to assess their effectiveness on modern LLM tasks. We introduce BoLT, the first LLM-centric benchmark that democratizes LLM research for the BBO community. BoLT is released at https://github.com/chewwt/bolt. BoLT covers broad and well-motivated LLM optimization problems, involving multi-fidelity, multi-objective, heteroscedastic noise, and high-dimensional search spaces. Each problem in BoLT is grounded in real experimental data and made fully reproducible and accessible through lightweight surrogate models fitted to the results of thousands of real LLM experiments. We benchmark BoLT against an extensive range of BO and BBO methods, showing that selected BO methods consistently outperform others across tasks and highlighting gaps in existing BBO methods on LLM tasks, underscoring the need to modernize benchmarks for the BBO community.",
+   "url": "http://arxiv.org/abs/2605.17000v1"
+  },
+  {
+   "arxiv_id": "2501.12053v1",
+   "title": "PINNsAgent: Automated PDE Surrogation with Large Language Models",
+   "authors": [
+    "Qingpo Wuwu",
+    "Chonghan Gao",
+    "Tianyu Chen",
+    "Yihang Huang",
+    "Yuekai Zhang",
+    "Jianing Wang",
+    "Jianxin Li",
+    "Haoyi Zhou",
+    "Shanghang Zhang"
+   ],
+   "published": "2025-01-21",
+   "abstract": "Solving partial differential equations (PDEs) using neural methods has been a long-standing scientific and engineering research pursuit. Physics-Informed Neural Networks (PINNs) have emerged as a promising alternative to traditional numerical methods for solving PDEs. However, the gap between domain-specific knowledge and deep learning expertise often limits the practical application of PINNs. Previous works typically involve manually conducting extensive PINNs experiments and summarizing heuristic rules for hyperparameter tuning. In this work, we introduce PINNsAgent, a novel surrogation framework that leverages large language models (LLMs) and utilizes PINNs as a foundation to bridge the gap between domain-specific knowledge and deep learning. Specifically, PINNsAgent integrates (1) Physics-Guided Knowledge Replay (PGKR), which encodes the essential characteristics of PDEs and their associated best-performing PINNs configurations into a structured format, enabling efficient knowledge transfer from solved PDEs to similar problems and (2) Memory Tree Reasoning, a strategy that effectively explores the search space for optimal PINNs architectures. By leveraging LLMs and exploration strategies, PINNsAgent enhances the automation and efficiency of PINNs-based solutions. We evaluate PINNsAgent on 14 benchmark PDEs, demonstrating its effectiveness in automating the surrogation process and significantly improving the accuracy of PINNs-based solutions.",
+   "url": "http://arxiv.org/abs/2501.12053v1"
+  },
+  {
+   "arxiv_id": "2606.23277v1",
+   "title": "GIF: Locally Sound Geometric Information Flow Control for LLMs",
+   "authors": [
+    "Adam Storek",
+    "Nikolaus Holzer",
+    "Zhuo Zhang",
+    "Suman Jana"
+   ],
+   "published": "2026-06-22",
+   "abstract": "Large language models increasingly mediate interactions between sensitive data, untrusted inputs, and privileged actions in agentic systems, creating security and privacy risks. These range from prompt injections that manipulate downstream tool use to leakage of confidential information through model outputs. Recent Information Flow Control (IFC)-based defenses show promise but lack a principled semantic foundation for reasoning about information flow through the model itself. Since any input token may influence any output token in an autoregressive LLM, existing approaches suffer from severe taint explosion. We present Geometric Information Flow (GIF), a semantic framework for tracking information flow from input tokens to outputs. GIF uses the LLM Jacobian and local output geometry to upper-bound the Shannon mutual information between perturbed input spans and model outputs, yielding a scalable measure computable on large models via automatic differentiation and low-rank approximation. Unlike attention-based or correlational attribution heuristics, GIF satisfies local geometric soundness, and we provide a fully mechanized Lean 4 proof that it upper-bounds the true information flow induced by a given prompt under local regularity assumptions. We evaluate GIF on integrity and confidentiality tasks across multiple prompt-injection and privacy-leakage benchmarks. GIF achieves near-perfect recall even without a downstream declassifier, outperforming attention-based baselines. Combined with lightweight LLM-based declassifiers, it matches or exceeds the F1 of direct LLM-as-judge baselines such as GPT-5.5 xhigh reasoning while using up to 81x lower token cost. GIF flows detected with small surrogate models transfer to larger state-of-the-art models and other model families, even when the surrogate is up to 200x smaller, suggesting black-box deployment without gradient access.",
+   "url": "http://arxiv.org/abs/2606.23277v1"
+  },
+  {
+   "arxiv_id": "2511.20718v2",
+   "title": "Stabilizing Off-Policy Training for Long-Horizon LLM Agent via Turn-Level Importance Sampling and Clipping-Triggered Normalization",
+   "authors": [
+    "Chenliang Li",
+    "Adel Elmahdy",
+    "Alex Boyd",
+    "Zhongruo Wang",
+    "Siliang Zeng",
+    "Alfredo Garcia",
+    "Parminder Bhatia",
+    "Taha Kass-Hout",
+    "Cao Xiao",
+    "Mingyi Hong"
+   ],
+   "published": "2025-11-25",
+   "abstract": "Reinforcement learning (RL) algorithms such as PPO and GRPO are widely used to train large language models (LLMs) for multi-turn agentic tasks. However, in off-policy training pipelines, these methods often exhibit unstable optimization dynamics and are prone to performance collapse. Through empirical analysis, we identify two fundamental sources of instability in this setting: (1)~a granularity mismatch between token-level policy optimization and turn-structured interactions, and (2) high-variance and unreliable gradient updates induced by off-policy importance sampling and inaccurate advantage estimation. To address these challenges, we propose SORL, \\underline{S}tabilizing \\underline{O}ff-Policy \\underline{R}einforcement \\underline{L}earning for Long-Horizon Agent Training. SORL introduces principled mechanisms that align policy optimization with the structure of multi-turn interactions and adaptively suppress unreliable off-policy updates, yielding more conservative and robust learning dynamics. Within this framework, we instantiate two stabilized algorithms: SO-PPO and SO-GRPO. Both algorithms are designed to mitigate gradient variance and prevent optimization collapse without requiring careful early stopping or heuristic tuning. We evaluate SO-PPO and SO-GRPO on a range of multi-turn search benchmarks, including general question answering, multi-hop question answering, and medical multiple-choice QA tasks. Experimental results show that both methods consistently prevent training instabilities and performance collapses observed in standard PPO and GRPO, maintain lower clipping ratios and more stable optimization trajectories, and achieve superior or comparable task performance. These results demonstrate that the proposed algorithm provides a practical, scalable, and general framework for stabilizing reinforcement learning in multi-turn LLM agent training.",
+   "url": "http://arxiv.org/abs/2511.20718v2"
+  }
+ ]
+}
