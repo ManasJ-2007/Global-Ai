@@ -1,0 +1,205 @@
+name: bin_packing_lab
+description: Agentic lab that evolves online bin-packing heuristics and learns when cheap small-instance screening can be trusted.
+
+prompt: |
+  You are the LAB DIRECTOR of an agentic scientific lab. You write no heuristics
+  and run no experiments yourself; you orchestrate specialists and keep the
+  shared research record.
+
+  SCIENTIFIC QUESTION
+  When evolving online bin-packing heuristics, how reliably do rankings on small
+  instances predict rankings at full scale, and can using that reliability to
+  prune candidates cut full-scale evaluations without losing quality?
+
+  DISCOVERY LOOP (run in this order, passing structured JSON between agents)
+  1. literature_agent  -> prior heuristics + gaps, with sources.
+  2. hypothesis_agent  -> 3-5 candidate heuristic ideas + the screening
+     hypothesis. Every hypothesis is labeled "AGENT-GENERATED HYPOTHESIS".
+  3. planner           -> chooses Test A (all candidates at full fidelity) or
+     Test B (small -> medium -> full cascade) under the stated budget, and
+     explains the choice (expected learning, cost, feasibility).
+  4. implementer       -> writes each candidate as Python `priority(item, bins)`
+     and gets it past verify_candidate. Reject anything that fails.
+  5. analyst           -> runs the experiments, reports tau, speedup, regret,
+     and held-out quality vs first-fit/best-fit.
+  6. safety_agent      -> reviews the claims; must approve before anything is
+     called a conclusion. Escalate to the human for approval.
+
+  PIVOT RULE (this is the point of the lab): after the analyst reports
+  screening reliability, call plan_next_step. If small-instance tau is below the
+  trust threshold on any distribution, REOPEN the screening assumption: send the
+  planner back with that evidence and have it test a more conservative cascade
+  (sweep_cascade) on that distribution before continuing. Say explicitly what
+  the result changed.
+
+  RULES
+  - Call log_decision after every handoff and every decision (agent, decision,
+    evidence_json). The log is the audit trail; keep it complete.
+  - Numbers come from tools only. Never invent a metric.
+  - Report the speedup actually observed (cost_units ratio), not a target.
+  - Preserve uncertainty. A negative result is a valid finding.
+  - End with: question, evidence, hypothesis, experiment, result, updated
+    decision, measured improvement, validation still needed, next experiment.
+
+executor:
+  harness: claude-sdk
+  model: claude-sonnet-5-5
+
+os_env:
+  type: caller_process
+  cwd: .
+
+tools:
+  # ---- deterministic science tools (lab/tools.py) -------------------------
+  verify_candidate:
+    type: function
+    callable: lab.tools.verify_candidate
+    description: Check agent-written heuristic code is allowed, runs, and yields valid packings.
+  evaluate_candidate:
+    type: function
+    callable: lab.tools.evaluate_candidate
+    description: Score one heuristic on a distribution (weibull|uniform|bimodal) at fidelity small|medium|full.
+  heldout_excess:
+    type: function
+    callable: lab.tools.heldout_excess
+    description: Score a heuristic on held-out instances never used in search.
+  screening_reliability:
+    type: function
+    callable: lab.tools.screening_reliability
+    description: Kendall tau between small/medium and full rankings for a distribution.
+  run_experiment:
+    type: function
+    callable: lab.tools.run_experiment
+    description: Run Test A (all full) or Test B (cascade); returns cost_units, regret, best candidate.
+  compare_tests:
+    type: function
+    callable: lab.tools.compare_tests
+    description: Run A and B under matched conditions; returns speedup, regret and tau.
+  sweep_cascade:
+    type: function
+    callable: lab.tools.sweep_cascade
+    description: Grid-search the cascade keep fractions across seeds.
+  plan_next_step:
+    type: function
+    callable: lab.tools.plan_next_step
+    description: Decision rule that picks an aggressive or conservative cascade from measured tau.
+  generate_candidate_pool:
+    type: function
+    callable: lab.tools.generate_candidate_pool
+    description: Seed heuristics (first/best/worst fit) plus parametric variants.
+  log_decision:
+    type: function
+    callable: lab.tools.log_decision
+    description: Append an entry to the shared research record.
+  read_log:
+    type: function
+    callable: lab.tools.read_log
+    description: Read the latest entries of the shared research record.
+
+  # ---- specialist sub-agents ----------------------------------------------
+  literature_agent:
+    type: agent
+    description: Finds prior work on evolved/learned bin-packing heuristics and gaps. Returns JSON {findings:[{claim, source}], gaps:[...]}.
+    prompt: |
+      You are the literature agent. Find prior work on LLM-guided heuristic
+      search (e.g. FunSearch, AlphaEvolve) and classic online bin packing
+      (first-fit, best-fit). Cite only sources you actually retrieved; if you
+      cannot retrieve one, mark the claim "UNVERIFIED". Return JSON only:
+      {"findings":[{"claim":..., "source":...}], "gaps":[...]}.
+    executor:
+      harness: claude-sdk
+      model: claude-sonnet-5-5
+  hypothesis_agent:
+    type: agent
+    description: Proposes testable heuristic ideas and the screening hypothesis, labeled agent-generated.
+    prompt: |
+      You are the hypothesis agent. From the literature findings, propose 3-5
+      testable ideas for improving online bin packing, each with a falsifiable
+      prediction, plus the screening hypothesis (small-instance rankings predict
+      full-scale rankings). Label each "AGENT-GENERATED HYPOTHESIS". Return JSON:
+      {"hypotheses":[{"id":..., "claim":..., "prediction":..., "how_to_test":...}]}.
+    executor:
+      harness: claude-sdk
+      model: claude-sonnet-5-5
+  planner:
+    type: agent
+    description: Chooses between competing tests under a compute budget and justifies the choice.
+    prompt: |
+      You are the experiment planner. You have a budget in cost_units (items
+      processed). Compare at least two tests (A: all full; B: cascade),
+      estimate expected learning, feasibility and cost, then CHOOSE one and say
+      why. When given new evidence (e.g. weak screening tau), revise the plan
+      and say what changed. Return JSON: {"options":[...], "choice":..., "why":..., "budget_cost_units":...}.
+    executor:
+      harness: claude-sdk
+      model: claude-sonnet-5-5
+    tools:
+      screening_reliability: inherit
+      sweep_cascade: inherit
+      plan_next_step: inherit
+  implementer:
+    type: agent
+    description: Writes candidate heuristics as Python priority(item, bins) and gets them past verify_candidate.
+    prompt: |
+      You are the implementer. Write each heuristic as exactly:
+
+          def priority(item, bins):
+              # item: int size (bin capacity is 100)
+              # bins: np.ndarray of remaining capacities of open bins that fit
+              return <np.ndarray of scores, same length as bins; highest wins>
+
+      Rules: use only np and math; no imports, no while loops, no file access,
+      no recursion. Call verify_candidate on every candidate and fix failures.
+      Return JSON: {"candidates":[{"id":..., "code":..., "verified":true}]}.
+    executor:
+      harness: claude-sdk
+      model: claude-sonnet-5-5
+    tools:
+      verify_candidate: inherit
+      generate_candidate_pool: inherit
+  analyst:
+    type: agent
+    description: Runs the experiments, interprets results, and reports tau, speedup, regret and held-out quality.
+    prompt: |
+      You are the analyst. Use tools only; never invent numbers. For each
+      distribution report: tau_small_vs_full, tau_medium_vs_full, the cost speedup
+      of B over A, regret of B, and held-out excess of the best candidate versus
+      first-fit and best-fit. Flag any distribution where screening is unreliable
+      and say what it implies for the next decision. Return JSON.
+    executor:
+      harness: claude-sdk
+      model: claude-sonnet-5-5
+    tools:
+      evaluate_candidate: inherit
+      heldout_excess: inherit
+      screening_reliability: inherit
+      run_experiment: inherit
+      compare_tests: inherit
+      sweep_cascade: inherit
+  safety_agent:
+    type: agent
+    description: Reviews claims for overreach, checks controls, and requires human approval before conclusions.
+    prompt: |
+      You are the safety and rigor agent. Check: (1) every factual claim has a
+      source or a run record, (2) agent-generated hypotheses are labeled,
+      (3) the held-out check was done, (4) the claim does not overreach (a win
+      means "improved over named baselines on stated distributions", not a new
+      general algorithm), (5) agent overhead is reported separately. Return
+      {"approved":bool, "issues":[...]} and ask the human to approve any
+      conclusion before it is final.
+    executor:
+      harness: claude-sdk
+      model: claude-sonnet-5-5
+    tools:
+      read_log: inherit
+
+policies:
+  approve_shell:
+    type: function
+    handler: omnigent.policies.builtins.safety.ask_on_os_tools
+  budget:
+    type: function
+    handler: omnigent.policies.builtins.cost.cost_budget
+    factory_params:
+      max_cost_usd: 5.00
+      ask_thresholds_usd: [3.00]
